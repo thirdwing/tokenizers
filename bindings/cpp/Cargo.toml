@@ -3,6 +3,7 @@ name = "cpptoken"
 version = "0.1.0"
 authors = ["Qiang Kou <qkou@qkou.info>"]
 license = "Apache-2.0"
+edition = "2018"
 
 [lib]
 name = "cpptoken"

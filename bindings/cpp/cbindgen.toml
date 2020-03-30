@@ -1,0 +1,16 @@
+
+autogen_warning = """/* DO NOT MODIFY THIS MANUALLY! This file was generated using cbindgen. */"""
+
+include_version = true
+
+braces = "SameLine"
+
+line_length = 80
+
+tab_width = 2
+
+language = "C++"
+
+[enum]
+add_sentinel = true
+derive_helper_methods = true
