@@ -4,7 +4,7 @@ use tk::tokenizer::{
     PaddingDirection, PaddingParams, PaddingStrategy, TruncationParams, TruncationStrategy,
 };
 
-#[repr(transparent)]
+#[repr(C)]
 pub struct AddedToken {
     pub token: tk::tokenizer::AddedToken,
 }
@@ -16,12 +16,19 @@ pub extern "C" fn added_token_init(
     single_word: bool,
     lstrip: bool,
     rstrip: bool,
-) -> AddedToken {
+) -> *mut AddedToken {
     let s = unsafe { String::from_raw_parts(content, length, length) };
     let mut token = tk::tokenizer::AddedToken::from(s);
     token = token.single_word(single_word);
     token = token.lstrip(lstrip);
     token = token.rstrip(rstrip);
 
-    AddedToken { token }
+    let added_token = AddedToken { token };
+    Box::into_raw(Box::new(added_token))
+}
+
+/// Tokenizer
+#[repr(C)]
+pub struct Tokenizer {
+    tokenizer: tk::tokenizer::Tokenizer,
 }
