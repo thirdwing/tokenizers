@@ -4,9 +4,8 @@ use tk::tokenizer::{
     PaddingDirection, PaddingParams, PaddingStrategy, TruncationParams, TruncationStrategy,
 };
 
-#[repr(C)]
 pub struct AddedToken {
-    pub token: tk::tokenizer::AddedToken,
+    token: tk::tokenizer::AddedToken,
 }
 
 #[no_mangle]
