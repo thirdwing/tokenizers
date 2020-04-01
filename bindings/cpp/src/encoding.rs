@@ -4,7 +4,6 @@ use tk::tokenizer::PaddingDirection;
 
 use crate::container::Container;
 
-#[repr(C)]
 pub struct Encoding {
     pub encoding: Container<tk::tokenizer::Encoding>,
 }
